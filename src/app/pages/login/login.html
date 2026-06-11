@@ -1,0 +1,29 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <div class="back-btn" routerLink="/">
+     <i class="ti ti-arrow-left"></i>
+      უკან
+    </div>
+    <div class="login-header">
+      <i class="ti ti-train"></i>
+      <h1>STEP RAILWAY</h1>
+      <p>შესვლა</p>
+    </div>
+
+    <div class="input-group">
+      <i class="ti ti-mail"></i>
+      <input type="email" [(ngModel)]="email" placeholder="ელ. ფოსტა" />
+    </div>
+
+    <div class="input-group">
+      <i class="ti ti-lock"></i>
+      <input type="password" [(ngModel)]="password" placeholder="პაროლი" />
+    </div>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+
+    <button class="btn-login" (click)="signIn()">შესვლა</button>
+
+    <p class="signup-link">ანგარიში არ გაქვს? <span routerLink="/register" >დარეგისტრირდი</span></p>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="check-wrapper">
+  <app-navbar></app-navbar>
+
+  <div class="container">
+    <h1 class="page-title">ბილეთის შემოწმება</h1>
+
+        <div class="saved-tickets" *ngIf="savedTickets.length > 0">
+      <h3 class="saved-title">ჩემი ბილეთები</h3>
+      <div *ngFor="let t of savedTickets" class="saved-ticket-row" (click)="loadSaved(t.ticketId)">
+        <span class="saved-route">{{ t.from }} → {{ t.to }}</span>
+        <span class="saved-date">{{ t.departure }} · {{ t.date }}</span>
+      </div>
+    </div>
+    
+    <div class="search-box">
+      <input
+        class="form-input"
+        type="text"
+        placeholder="შეიყვანეთ ბილეთის ნომერი"
+        [(ngModel)]="ticketId"
+      />
+      <button class="btn-search" (click)="search()" [disabled]="loading">
+        {{ loading ? 'იძებნება...' : 'შემოწმება' }}
+      </button>
+    </div>
+
+    <p *ngIf="error" class="error-msg">{{ error }}</p>
+
+    <div *ngIf="ticket" class="ticket-card">
+      <div class="success-header">
+        <i class="ti ti-circle-check"></i>
+        <h2>ბილეთი ნაპოვნია</h2>
+      </div>
+      <div class="ticket-body">
+        <div class="ticket-row">
+          <span class="label">ბილეთის №</span>
+          <span class="value">{{ ticket.id }}</span>
+        </div>
+        <div class="ticket-row">
+          <span class="label">თარიღი</span>
+          <span class="value">{{ ticket.date }}</span>
+        </div>
+        <div class="ticket-row">
+          <span class="label">ელ. ფოსტა</span>
+          <span class="value">{{ ticket.email }}</span>
+        </div>
+        <div class="divider"></div>
+        <div class="passengers-section">
+          <h3>მგზავრები</h3>
+          <div *ngFor="let p of ticket.persons" class="passenger-row">
+            <span>{{ p.name }} {{ p.surname }}</span>
+            <span class="seat-badge">პირადი №: {{ p.idNumber }}</span>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="ticket-row total">
+          <span>სულ გადახდილი:</span>
+          <span>{{ ticket.ticketPrice }}₾</span>
+        </div>
+      </div>
+      <button class="btn-cancel" (click)="cancelTicket()">ბილეთის გაუქმება</button>
+    </div>
+  </div>
+</div>

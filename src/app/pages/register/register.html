@@ -1,0 +1,80 @@
+<div class="register-wrapper">
+  <div class="register-card">
+
+    <div class="back-btn" routerLink="/login">
+      <i class="ti ti-arrow-left"></i>
+      უკან
+    </div>
+
+    <div class="register-header">
+      <i class="ti ti-train"></i>
+      <h1>STEP RAILWAY</h1>
+      <p>რეგისტრაცია</p>
+    </div>
+
+    <div class="form-row">
+      <div class="input-group">
+        <i class="ti ti-user"></i>
+        <input type="text" [(ngModel)]="userData.firstName" placeholder="სახელი" />
+      </div>
+      <div class="input-group">
+        <i class="ti ti-user"></i>
+        <input type="text" [(ngModel)]="userData.lastName" placeholder="გვარი" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="input-group">
+        <i class="ti ti-calendar"></i>
+        <input type="number" [(ngModel)]="userData.age" placeholder="ასაკი" />
+      </div>
+      <div class="input-group">
+        <i class="ti ti-gender-bigender"></i>
+        <select [(ngModel)]="userData.gender">
+            <option value="" disabled selected>სქესი</option>
+            <option value="MALE">მამრობითი</option>
+            <option value="FEMALE">მდედრობითი</option>
+            <option value="OTHER">სხვა</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <i class="ti ti-mail"></i>
+      <input type="email" [(ngModel)]="userData.email" placeholder="ელ. ფოსტა" />
+    </div>
+
+    <div class="input-group">
+      <i class="ti ti-lock"></i>
+      <input type="password" [(ngModel)]="userData.password" placeholder="პაროლი" />
+    </div>
+
+    <div class="input-group">
+      <i class="ti ti-phone"></i>
+      <input type="text" [(ngModel)]="userData.phone" placeholder="ტელეფონი" />
+    </div>
+
+    <div class="input-group">
+      <i class="ti ti-home"></i>
+      <input type="text" [(ngModel)]="userData.address" placeholder="მისამართი" />
+    </div>
+
+    <div class="input-group">
+      <i class="ti ti-map-pin"></i>
+      <input type="text" [(ngModel)]="userData.zipcode" placeholder="საფოსტო კოდი" />
+    </div>
+
+    <div class="input-group">
+      <i class="ti ti-photo"></i>
+      <input type="text" [(ngModel)]="userData.avatar" placeholder="ავატარის URL (არასავალდებულო)" />
+    </div>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+    <p class="success" *ngIf="success">{{ success }}</p>
+
+    <button class="btn-register" (click)="signUp()">რეგისტრაცია</button>
+
+    <p class="login-link">უკვე გაქვს ანგარიში? <span routerLink="/login">შესვლა</span></p>
+
+  </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="payment-wrapper">
+  <app-navbar></app-navbar>
+
+  <div class="checkout-layout">
+  <div class="summary-card" *ngIf="ticketDetails">
+    <h2 class="summary-title">შეკვეთის დეტალები</h2>
+    
+    <div class="ticket-route">
+      <div class="route-station">
+        <span class="station-time">{{ ticketDetails.departureTime }}</span>
+        <span class="station-name">{{ ticketDetails.departureStation }}</span>
+      </div>
+      <div class="route-line">
+        <span class="train-icon">----></span>
+      </div>
+      <div class="route-station">
+        <span class="station-time">{{ ticketDetails.arrivalTime }}</span>
+        <span class="station-name">{{ ticketDetails.arrivalStation }}</span>
+      </div>
+    </div>
+
+    <div class="summary-details">
+      <div class="detail-row">
+        <span>მგზავრი:</span>
+        <strong>{{ ticketDetails.passengerName }}</strong>
+      </div>
+      <div class="detail-row">
+        <span>თარიღი:</span>
+        <strong>{{ ticketDetails.date }}</strong>
+      </div>
+      <div class="detail-row">
+        <span>ვაგონი / ადგილი:</span>
+        <strong>{{ ticketDetails.carriage }}, ადგილი {{ ticketDetails.seat }}</strong>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="price-row">
+      <span>სულ გადასახდელი:</span>
+      <span class="total-price">{{ ticketDetails.price }} ₾</span>
+    </div>
+  </div>
+<div class="container">
+      <h1 class="page-title">გადახდა</h1>
+
+      <div class="card-scene">
+        <div class="card-3d" [class.flipped]="cvvFocused">
+          <div class="card-face card-front">
+            <div class="card-logo">VISA</div>
+            <div class="card-chip"></div>
+            <div class="card-number-preview">{{ formatDisplay(cardNumber) || '•••• •••• •••• ••••' }}</div>
+            <div class="card-bottom">
+              <div>
+                <div class="card-label">ბარათის მფლობელი</div>
+                <div class="card-name-preview">{{ cardName.toUpperCase() || 'FULL NAME' }}</div>
+              </div>
+              <div>
+                <div class="card-label">ვადა</div>
+                <div class="card-expiry-preview">{{ expiry || 'MM/YY' }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-stripe"></div>
+            <div class="card-cvv-area">
+              <div class="card-label">CVV</div>
+              <div class="card-cvv-box">{{ cvv ? '•'.repeat(cvv.length) : '•••' }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-form">
+        <div class="form-group">
+          <label>ბარათის ნომერი</label>
+          <input class="form-input" type="text" placeholder="1234 5678 9012 3456"
+            [(ngModel)]="cardNumber" (input)="formatCardNumber()" maxlength="19" />
+        </div>
+        <div class="form-group">
+          <label>სახელი და გვარი</label>
+          <input class="form-input" type="text" placeholder="FULL NAME"
+            [(ngModel)]="cardName" style="text-transform: uppercase" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>ვადის გასვლა</label>
+            <input class="form-input" type="text" placeholder="MM/YY"
+              [(ngModel)]="expiry" (input)="formatExpiry()" maxlength="5" />
+          </div>
+          <div class="form-group">
+            <label>CVV</label>
+            <input class="form-input" type="password" placeholder="•••"
+              [(ngModel)]="cvv" maxlength="3"
+              (focus)="cvvFocused = true"
+              (blur)="cvvFocused = false" />
+          </div>
+        </div>
+
+        <p *ngIf="error" class="error-msg">{{ error }}</p>
+
+        <button class="btn-pay" (click)="pay()" [disabled]="loading">
+          {{ loading ? 'მუშავდება...' : 'გადახდა' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+    
+  </div>

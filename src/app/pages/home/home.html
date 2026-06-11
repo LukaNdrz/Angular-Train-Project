@@ -1,0 +1,121 @@
+<div class="home-wrapper">
+<app-navbar></app-navbar>
+
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-subtitle">Georgia Railways</p>
+      <h1 class="hero-title">შეიძინეთ მატარებლის ბილეთი</h1>
+      <p class="hero-desc">გისურვებთ ბედნიერ მგზავრობას</p>
+
+
+      <div class="search-form">
+        <div class="input-group">
+          <i class="ti ti-map-pin"></i>
+          <select [(ngModel)]="from">
+            <option value="" disabled selected>საიდან</option>
+            <option *ngFor="let station of stations" [value]="station.name">
+              {{ station.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <i class="ti ti-map-pin"></i>
+          <select [(ngModel)]="to">
+            <option value="" disabled selected>სად</option>
+            <option *ngFor="let station of stations" 
+                    [value]="station.name"
+                    [disabled]="station.name === from">
+              {{ station.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <i class="ti ti-calendar"></i>
+          <input 
+            type="text" 
+            [(ngModel)]="date" 
+            [min]="today"
+            placeholder="თარიღი"
+            onfocus="this.type='date'"
+            onblur="if(!this.value) this.type='text'"
+          />
+        </div>
+
+        <div class="input-group">
+          <i class="ti ti-users"></i>
+          <input type="number" [(ngModel)]="passengers" [min]="1" placeholder="მგზავრები" />
+        </div>
+
+        <button class="btn-search" (click)="searchTrains()">
+          <i class="ti ti-search"></i>
+          ძებნა
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="features">
+    <div class="feature-card">
+      <i class="ti ti-shield-check"></i>
+      <h3>100% უსაფრთხო</h3>
+      <p>დაცული გადახდა</p>
+    </div>
+    <div class="feature-card">
+      <i class="ti ti-headset"></i>
+      <h3>24/7 მხარდაჭერა</h3>
+      <p>ნებისმიერ დროს</p>
+    </div>
+    <div class="feature-card">
+      <i class="ti ti-credit-card"></i>
+      <h3>ონლაინ გადახდა</h3>
+      <p>სწრაფი და მარტივი</p>
+    </div>
+    <div class="feature-card">
+      <i class="ti ti-ticket"></i>
+      <h3>ელ. ბილეთი</h3>
+      <p>მომენტალურად</p>
+    </div>
+  </section>
+
+
+  <section class="how-it-works">
+  <video class="section-bg-video" autoplay muted loop playsinline
+  #trainVideo>
+  <source src="/assets/2281-157183510_medium.mp4" type="video/mp4" />
+  </video>
+
+  <div class="section-content">
+    <h2>როგორ მუშაობს</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>მოძებნე მატარებელი</h3>
+        <p>შეიყვანე გამგზავრების ადგილი, დანიშნულება და თარიღი</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>აირჩიე ადგილი</h3>
+        <p>შეიყვანე მგზავრების ინფორმაცია და აირჩიე სასურველი ადგილი</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>გადაიხადე</h3>
+        <p>გადაიხადე ონლაინ და მიიღე ბილეთი ელ. ფოსტაზე</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <footer class="footer">
+    <span>© 2026 Step Railway. ყველა უფლება დაცულია.</span>
+    <i class="ti ti-train"></i>
+  </footer>
+
+</div>

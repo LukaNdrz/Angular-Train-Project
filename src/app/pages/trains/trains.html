@@ -1,0 +1,71 @@
+<div class="trains-wrapper">
+  <app-navbar></app-navbar>
+
+  <div class="container">
+
+    <div class="search-summary">
+      <div>
+        <div class="summary-route">
+          <span class="summary-city">{{ searchParams.from || 'ნებისმიერი' }}</span>
+          <span class="summary-arrow">→</span>
+          <span class="summary-city">{{ searchParams.to || 'ნებისმიერი' }}</span>
+        </div>
+        <p class="results-count">{{ filteredTrains.length }} რეისი ნაპოვნია</p>
+      </div>
+      <div class="summary-meta">
+        <div class="summary-tag">
+          <i class="ti ti-calendar"></i>
+          {{ searchParams.date || 'თარიღი არ არის' }}
+        </div>
+        <div class="summary-tag">
+          <i class="ti ti-users"></i>
+          {{ searchParams.passengers || 1 }} მგზავრი
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="filteredTrains.length === 0" class="no-results">
+      <i class="ti ti-train-off"></i>
+      სამწუხაროდ, მითითებულ რეისზე მატარებლები ვერ მოიძებნა.
+    </div>
+
+    <div *ngIf="filteredTrains.length > 0" class="train-list">
+      <div *ngFor="let train of filteredTrains" class="train-card">
+        <div class="card-accent"></div>
+        <div class="card-content">
+
+          <div class="card-left">
+            <span class="train-badge">
+              <i class="ti ti-train"></i>
+              №{{ train.number }}
+            </span>
+            <h3 class="train-route">{{ train.from }} → {{ train.to }}</h3>
+            <p class="train-name">{{ train.name }}</p>
+          </div>
+
+          <div class="card-middle">
+            <div class="time-block">
+              <span class="time-label">გამგზავრება</span>
+              <span class="time-value">{{ train.departure }}</span>
+              <span class="time-station">{{ train.from }}</span>
+            </div>
+            <div class="time-divider">
+              <i class="ti ti-arrow-right divider-icon"></i>
+            </div>
+            <div class="time-block">
+              <span class="time-label">ჩასვლა</span>
+              <span class="time-value">{{ train.arrive }}</span>
+              <span class="time-station">{{ train.to }}</span>
+            </div>
+          </div>
+
+          <div class="card-right">
+            <button class="btn-select" (click)="selectTrain(train)">ბილეთების არჩევა</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

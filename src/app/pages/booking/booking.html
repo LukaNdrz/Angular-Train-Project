@@ -1,0 +1,173 @@
+<div class="booking-wrapper">
+  <app-navbar></app-navbar>
+
+  <div class="booking-layout">
+    <div class="main-content">
+
+      <div class="section-card">
+        <h2 class="section-title">შეიყვანეთ თქვენი მონაცემები</h2>
+        <div class="train-summary">
+          <div class="train-summary-left">
+            <span class="train-badge">#{{ trainInfo.number }}</span>
+            <p class="train-name">{{ trainInfo.name }}</p>
+          </div>
+          <div class="train-summary-mid">
+            <div class="time-col">
+              <span class="time-label">გამგზავრება</span>
+              <span class="time-val">{{ trainInfo.departure }}</span>
+              <span class="station">{{ trainInfo.from }}</span>
+            </div>
+            <div class="arrow">➔</div>
+            <div class="time-col">
+              <span class="time-label">ჩასვლა</span>
+              <span class="time-val">{{ trainInfo.arrive }}</span>
+              <span class="station">{{ trainInfo.to }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h2 class="section-title">საკონტაქტო ინფორმაცია</h2>
+        <div class="input-row">
+          <input class="form-input" type="email" placeholder="იმეილი" [(ngModel)]="contactEmail" />
+          <input class="form-input" type="tel" placeholder="ტელეფონის ნომერი" [(ngModel)]="contactPhone" />
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h2 class="section-title">მგზავრების ინფორმაცია</h2>
+        <div *ngFor="let p of passengerList; let i = index" class="passenger-block">
+          <h3 class="passenger-label">მგზავრი {{ i + 1 }}</h3>
+          <div class="passenger-row">
+            <button class="btn-seat" (click)="openSeatPicker(i)">
+              {{ p.seatId ? 'ადგილი: ' + p.seatNumber : 'ადგილის არჩევა' }}
+            </button>
+            <input class="form-input" type="text" placeholder="სახელი" [(ngModel)]="p.name" />
+            <input class="form-input" type="text" placeholder="გვარი" [(ngModel)]="p.surname" />
+            <input class="form-input" type="text" placeholder="პირადი ნომერი" [(ngModel)]="p.idNumber" />
+          </div>
+          <div class="luggage-info">
+            <div class="luggage-item">
+              <i class="ti ti-briefcase"></i>
+              <div>
+                <strong>Personal Item</strong>
+                <p>Purse, small backpack, briefcase</p>
+                <span class="included">✔ Included</span>
+              </div>
+            </div>
+            <div class="luggage-item">
+              <i class="ti ti-backpack"></i>
+              <div>
+                <strong>Carry-on bag</strong>
+                <p>Fits in overhead bin or under the seat</p>
+                <span class="included">✔ Included</span>
+              </div>
+            </div>
+            <div class="luggage-item">
+              <i class="ti ti-luggage"></i>
+              <div>
+                <strong>Checked Bags</strong>
+                <p>Large Bag Purse, small backpack</p>
+                <span class="not-included">✖ Not Included</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p *ngIf="error" class="error-msg">{{ error }}</p>
+    </div>
+
+    <div class="invoice">
+      <h3 class="invoice-title">ინვოისი</h3>
+      <div class="invoice-row">
+        <span>ადგილი</span><span>ფასი</span>
+      </div>
+      <div *ngFor="let p of passengerList; let i = index" class="invoice-passenger">
+          <span>მგზავრი {{ i + 1 }}{{ p.seatNumber ? ' · ' + p.seatNumber : '' }}</span>
+          <span>{{ getSeatPrice(p.seatId) ? getSeatPrice(p.seatId) + '.00₾' : '—' }}</span>
+      </div>
+      <div class="invoice-row total">
+        <span>სულ:</span><span>{{ totalPrice }}.00₾</span>
+      </div>
+      <label class="checkbox-row">
+        <input type="checkbox" checked /> წავიკითხე და ვეთანხმები წესებს
+      </label>
+      <button class="btn-register" (click)="register()" [disabled]="loading">
+        {{ loading ? 'იტვირთება...' : 'ბილეთის რეგისტრაცია' }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="closeModal()">✕</button>
+
+    <!-- STEP 1: wagon picker -->
+    <div *ngIf="modalStep === 1" class="wagon-step">
+
+      <p class="modal-class-label">გთხოვთ აირჩიოთ ვაგონი</p>
+
+
+      <div class="wagon-list">
+
+  <div *ngFor="let v of vagons; let i = index"
+       class="wagon-card"
+       [class.active]="selectedVagon?.id === v.id"
+       (click)="selectVagon(v)">
+
+    <img
+      [src]="getWagonImage(i)"
+      alt="wagon"
+      class="wagon-image">
+
+    <div class="wagon-class">
+      {{ getWagonClass(i) }}
+    </div>
+  </div>
+</div>
+</div>
+
+
+    <!-- STEP 2: seat grid -->
+    <div *ngIf="modalStep === 2 && selectedVagon" class="seat-step">
+      <p class="wagon-name">ვაგონის ნომერი: {{ selectedVagon.id }}</p>
+      <div class="seat-grid-wrapper">
+        <div class="toilet-label">Toilet</div>
+        <div class="seat-grid-rows">
+          <div *ngFor="let row of getSeatRows(selectedVagon.seats)" class="seat-row">
+            <ng-container *ngFor="let seat of row">
+              <div class="aisle-gap" *ngIf="seat.number.endsWith('C')"></div>
+              <button class="seat-btn"
+                [class.occupied]="isSeatTaken(seat)"
+                [class.selected]="passengerList[modalPassengerIndex]?.seatId === seat.seatId"
+                (click)="selectSeat(seat)"
+                [disabled]="isSeatTaken(seat)">
+                {{ seat.number }}
+              </button>
+            </ng-container>
+          </div>
+        </div>
+        <div class="toilet-label toilet-bottom">Toilet</div>
+      </div>
+    </div>
+
+        <button class="btn-back" (click)="modalStep = 1">← უკან</button>
+    <button class="btn-confirm-seat" 
+      (click)="closeModal()"
+      [disabled]="!passengerList[modalPassengerIndex]?.seatId">
+      {{ passengerList[modalPassengerIndex]?.seatId ? 'ადგილის დადასტურება ✓' : 'აირჩიეთ ადგილი' }}
+    </button>
+
+  
+
+  </div>
+  
+</div>
+
+ <footer class="footer">
+    <span>© 2026 Step Railway. ყველა უფლება დაცულია.</span>
+    <i class="ti ti-train"></i>
+  </footer>

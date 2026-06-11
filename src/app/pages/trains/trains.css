@@ -1,0 +1,334 @@
+@font-face {
+  font-family: 'FiraGO';
+  src: url('/assets/FiraGO-Regular.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'FiraGO';
+  src: url('/assets/FiraGO-Medium.ttf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'FiraGO';
+  src: url('/assets/FiraGO-Bold.ttf');
+  font-weight: 700;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.trains-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(315deg, #a1d7ff, #ecfaff);
+  font-family: 'FiraGO', sans-serif;
+  padding-bottom: 60px;
+}
+
+.container {
+  max-width: 860px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+
+.search-summary {
+  background: linear-gradient(90deg, #ffd16f, #59b1ff);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.summary-route {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.summary-city {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.summary-arrow {
+  font-size: 20px;
+  color: #f0c040;
+}
+
+.summary-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.summary-tag {
+  background: rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.summary-tag i { font-size: 14px; color: #f0c040; }
+
+.results-count {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 8px;
+}
+
+
+.no-results {
+  text-align: center;
+  padding: 60px 40px;
+  color: #5a8aaa;
+  background: #fff;
+  border-radius: 16px;
+  border: 0.5px solid rgba(0,120,200,0.15);
+  font-size: 15px;
+}
+
+.no-results i {
+  font-size: 48px;
+  color: #d0e4f0;
+  display: block;
+  margin-bottom: 16px;
+}
+
+
+.train-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.train-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid rgba(0,120,200,0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: stretch;
+}
+
+.train-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,120,200,0.1);
+}
+
+
+.card-accent {
+  width: 15px;
+  background: linear-gradient(100deg, #4a90c4, #fff7cc);
+  flex-shrink: 0;
+}
+
+.card-content {
+  flex: 1;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  
+}
+.card-content:hover {
+background: #edfeff;
+}
+
+
+
+.card-left { min-width: 180px; }
+
+.train-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(74,144,196,0.1);
+  color: #4a90c4;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.train-route {
+  color: #1a3a5c;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.train-name {
+  color: #5a8aaa;
+  font-size: 12px;
+}
+
+/* MIDDLE */
+.card-middle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.time-label {
+  font-size: 10px;
+  color: #5a8aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.time-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a3a5c;
+}
+
+.time-station {
+  font-size: 11px;
+  color: #5a8aaa;
+  margin-top: 2px;
+}
+
+.time-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+}
+
+.divider-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #4a90c4, #b0cfe8);
+  border-radius: 2px;
+}
+
+.divider-icon {
+  font-size: 16px;
+  color: #4a90c4;
+}
+
+/* RIGHT */
+.card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.train-price {
+  font-size: 13px;
+  color: #5a8aaa;
+}
+
+.btn-select {
+  background: #ffbf00;
+  color: #1a3a5c;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'FiraGO', sans-serif;
+  white-space: nowrap;
+}
+
+.btn-select:hover { background: #daa400; }
+
+
+@media (max-width: 768px) {
+  .container {
+    margin: 20px auto;
+  }
+
+  .search-summary {
+    padding: 18px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .summary-meta {
+    width: 100%;
+  }
+
+  .card-content {
+    padding: 16px;
+    gap: 16px;
+  }
+}
+
+/* მობილური ტელეფონებისთვის (710px და ქვემოთ) */
+@media (max-width: 665px) {
+  .search-summary {
+    align-items: center;
+  }
+  .results-count {
+    display: flex;
+    justify-content: center;
+  }
+  .summary-meta {
+    justify-content: center;
+  }
+
+  .summary-city {
+    font-size: 18px;
+  }
+  
+  .card-content {
+    flex-direction: column;
+    align-items: stretch; /* ელემენტები იშლება სრულ სიგანეზე */
+    text-align: center;
+    gap: 20px;
+  }
+
+  .card-left {
+    min-width: 100%;
+  }
+
+  .card-middle {
+    width: 100%;
+    justify-content: space-between; /* მობილურზე დროები განაწილდება კიდეებში */
+    padding: 10px 0;
+    border-top: 1px dashed rgba(0,120,200,0.1);
+    border-bottom: 1px dashed rgba(0,120,200,0.1);
+  }
+
+  .time-block {
+    flex: 1;
+  }
+
+  .divider-line {
+    width: 40px; /* ისრის ხაზი მოკლდება მობილურზე */
+  }
+
+  .card-right {
+    align-items: center; /* ფასი და ღილაკი ცენტრდება */
+    width: 100%;
+  }
+
+  .btn-select {
+    width: 100%; /* ღილაკი ხდება სრული სიგანის მარტივი თაჩისთვის */
+    padding: 12px;
+  }
+}

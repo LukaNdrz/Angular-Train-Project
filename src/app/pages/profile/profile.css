@@ -1,0 +1,195 @@
+@font-face {
+  font-family: 'FiraGO';
+  src: url('../../../assets/FiraGO-Regular.ttf');
+  font-weight: 400;
+}
+
+.profile-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #bde0f7 0%, #89c4ef 30%, #ffffff 100%);
+  padding: 32px 24px;
+  font-family: 'FiraGO', sans-serif;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #5a8aaa;
+  cursor: pointer;
+  width: fit-content;
+  margin-bottom: 24px;
+}
+
+.back-btn:hover { color: #1a3a5c; }
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.avatar-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 0.5px solid rgba(0, 120, 200, 0.15);
+  padding: 28px 16px;
+  text-align: center;
+}
+
+.avatar-initials {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #f0c040;
+  color: #1a3a5c;
+  font-size: 32px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  border: 3px solid #e0b030;
+}
+
+.avatar-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a3a5c;
+  margin-bottom: 4px;
+}
+
+.avatar-card p {
+  font-size: 12px;
+  color: #5a8aaa;
+  margin-bottom: 14px;
+}
+
+.verified-badge {
+  background: #ddffe2;
+  color: #0bb81b;
+  border: 1.5px solid #5da314;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.nav-item {
+  background: #fff;
+  border-radius: 12px;
+  border: 0.5px solid rgba(0, 120, 200, 0.15);
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #1a3a5c;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.nav-item:hover {
+  border-color: #f0c040;
+  background: #fffbe6;
+}
+
+.nav-item i { font-size: 17px; color: #f0c040; }
+
+.main { display: flex; flex-direction: column; gap: 16px; }
+
+.section-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 0.5px solid rgba(0, 120, 200, 0.15);
+  padding: 28px;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid #f0c040;
+}
+
+.section-head i { font-size: 20px; color: #f0c040; }
+
+.section-head h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a3a5c;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field.full { grid-column: span 2; }
+
+.field label {
+  font-size: 11px;
+  color: #5a8aaa;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.field input,
+.field select {
+  height: 44px;
+  border: 0.5px solid rgba(0, 120, 200, 0.25);
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 13px;
+  color: #1a3a5c;
+  background: #fafcff;
+  outline: none;
+  width: 100%;
+  font-family: 'FiraGO', sans-serif;
+  transition: border 0.2s;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #f0c040;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.btn-save {
+  background: #f0c040;
+  color: #1a3a5c;
+  border: none;
+  padding: 11px 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'FiraGO', sans-serif;
+}
+
+.btn-save:hover { background: #e0b030; }
+
+.error { color: #e24b4a; font-size: 13px; text-align: center; margin-top: 8px; }
+.success { color: #1d9e75; font-size: 13px; text-align: center; margin-top: 8px; border: 0.5px solid #1d9e75; padding: 4px; border-radius: 4px; background: #e6f9f5;   }

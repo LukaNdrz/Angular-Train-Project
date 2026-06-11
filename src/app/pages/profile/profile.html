@@ -1,0 +1,65 @@
+<div class="profile-wrapper">
+  <div class="back-btn" routerLink="/">
+    <i class="ti ti-arrow-left"></i> უკან
+  </div>
+
+  <div class="profile-layout" *ngIf="user">
+    <div class="sidebar">
+      <div class="avatar-card">
+        <div class="avatar-initials">{{ user.firstName?.charAt(0).toUpperCase() }}</div>
+        <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+        <p>{{ user.email }}</p>
+        <span class="verified-badge">✓ verified</span>
+      </div>
+      <div class="nav-item" [class.active]="activeTab === 'info'" (click)="activeTab = 'info'">
+        <i class="ti ti-user"></i> პირადი ინფო
+      </div>
+      <div class="nav-item" [class.active]="activeTab === 'password'" (click)="activeTab = 'password'">
+        <i class="ti ti-lock"></i> პაროლი
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="section-card" *ngIf="activeTab === 'info'">
+        <div class="section-head">
+          <i class="ti ti-user-circle"></i>
+          <h3>პირადი ინფორმაცია</h3>
+        </div>
+        <div class="form-grid">
+          <div class="field"><label>სახელი</label><input type="text" [(ngModel)]="form.firstName" /></div>
+          <div class="field"><label>გვარი</label><input type="text" [(ngModel)]="form.lastName" /></div>
+          <div class="field"><label>ასაკი</label><input type="number" [(ngModel)]="form.age" /></div>
+          <div class="field"><label>სქესი</label>
+            <select [(ngModel)]="form.gender">
+              <option value="MALE">მამრობითი</option>
+              <option value="FEMALE">მდედრობითი</option>
+              <option value="OTHER">სხვა</option>
+            </select>
+          </div>
+          <div class="field full"><label>ელ. ფოსტა</label><input type="email" [(ngModel)]="form.email" /></div>
+          <div class="field full"><label>ტელეფონი</label><input type="text" [(ngModel)]="form.phone" /></div>
+          <div class="field full"><label>მისამართი</label><input type="text" [(ngModel)]="form.address" /></div>
+          <div class="field"><label>საფოსტო კოდი</label><input type="text" [(ngModel)]="form.zipcode" /></div>
+          <div class="field"><label>ავატარის URL</label><input type="text" [(ngModel)]="form.avatar" /></div>
+        </div>
+        <div class="btn-row"><button class="btn-save" (click)="updateProfile()">შენახვა</button></div>
+        <p class="success" *ngIf="updateSuccess">✓ პროფილი წარმატებით განახლდა!</p>
+        <p class="error" *ngIf="updateError">✗ {{ updateError }}</p>
+      </div>
+
+      <div class="section-card" *ngIf="activeTab === 'password'">
+        <div class="section-head">
+          <i class="ti ti-lock"></i>
+          <h3>პაროლის შეცვლა</h3>
+        </div>
+        <div class="form-grid">
+          <div class="field full"><label>ძველი პაროლი</label><input type="password" [(ngModel)]="oldPassword" /></div>
+          <div class="field full"><label>ახალი პაროლი</label><input type="password" [(ngModel)]="newPassword" /></div>
+        </div>
+        <div class="btn-row"><button class="btn-save" (click)="changePassword()">შეცვლა</button></div>
+        <p class="success" *ngIf="passwordSuccess">✓ პაროლი წარმატებით შეიცვალა!</p>
+        <p class="error" *ngIf="passwordError">✗ {{ passwordError }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<nav class="navbar">
+  <div class="navbar-top">
+    <div class="navbar-logo" routerLink="/">
+      <span class="navbar-logo-text">STEP RAILWAY</span>
+      <i class="ti ti-train"></i>
+    </div>
+    <button class="btn-check-ticket" routerLink="/check-ticket">ბილეთის შემოწმება</button>
+  </div>
+  <div class="navbar-bottom">
+    <ng-container *ngIf="auth.currentUser$ | async as user; else loggedOut">
+      <span class="navbar-username" routerLink="/profile">გამარჯობა, {{ user.firstName }}</span>
+      <button class="btn-logout" (click)="auth.signOut()">გასვლა</button>
+    </ng-container>
+    <ng-template #loggedOut>
+      <button class="btn-check-ticket" routerLink="/login">შესვლა</button>
+    </ng-template>
+  </div>
+</nav>

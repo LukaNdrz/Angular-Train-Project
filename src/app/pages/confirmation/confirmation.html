@@ -1,0 +1,56 @@
+<div class="confirmation-wrapper">
+  <app-navbar></app-navbar>
+  <div class="container">
+
+    <div *ngIf="loading" class="state-box">
+      <p>იტვირთება...</p>
+    </div>
+
+    <div *ngIf="error" class="state-box error">
+      <i class="ti ti-alert-circle"></i>
+      <p>{{ error }}</p>
+      <button class="btn-home" (click)="goHome()">მთავარ გვერდზე დაბრუნება</button>
+    </div>
+
+    <div *ngIf="!loading && !error && ticket" class="ticket-card">
+      <div class="success-header">
+        <i class="ti ti-circle-check"></i>
+        <h1>ბილეთი დადასტურებულია!</h1>
+        <p>თქვენი ბილეთი წარმატებით დარეგისტრირდა</p>
+      </div>
+      <div class="ticket-body">
+
+        <div class="ticket-row">
+          <span class="label">ბილეთის №</span>
+          <span class="value">{{ ticket.id }}</span>
+        </div>
+
+        <div class="ticket-row">
+          <span class="label">თარიღი</span>
+          <span class="value">{{ ticket.date }}</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="passengers-section">
+          <h3>მგზავრები</h3>
+          <div *ngFor="let p of ticket.persons" class="passenger-row">
+            <span>{{ p.name }} {{ p.surname }}</span>
+            <span class="seat-badge">პირადი №: {{ p.idNumber }}</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="ticket-row total">
+          <span>სულ გადახდილი:</span>
+          <span>{{ ticket.ticketPrice }}₾</span>
+        </div>
+
+      </div>
+      <button class="btn-home" (click)="goHome()">მთავარ გვერდზე დაბრუნება</button>
+      <button class="btn-pdf" (click)="downloadPDF()">ბილეთის ჩამოტვირთვა PDF</button>
+    </div>
+
+  </div>
+</div>
