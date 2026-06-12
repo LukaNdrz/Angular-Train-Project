@@ -4,7 +4,10 @@
       <span class="navbar-logo-text">STEP RAILWAY</span>
       <i class="ti ti-train"></i>
     </div>
-    <button class="btn-check-ticket" routerLink="/check-ticket">ბილეთის შემოწმება</button>
+    <div style="display:flex; align-items:center; gap:10px;">
+      
+      <button class="btn-check-ticket" routerLink="/check-ticket">ბილეთის შემოწმება</button>
+    </div>
   </div>
   <div class="navbar-bottom">
     <ng-container *ngIf="auth.currentUser$ | async as user; else loggedOut">
@@ -14,5 +17,8 @@
     <ng-template #loggedOut>
       <button class="btn-check-ticket" routerLink="/login">შესვლა</button>
     </ng-template>
+    <button class="btn-theme-toggle" (click)="theme.toggle()" [title]="theme.isDark() ? 'Light mode' : 'Dark mode'">
+        <i class="ti" [class.ti-sun]="theme.isDark()" [class.ti-moon]="!theme.isDark()"></i>
+      </button>
   </div>
 </nav>

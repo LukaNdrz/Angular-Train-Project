@@ -1,6 +1,5 @@
 .confirmation-wrapper {
   min-height: 100vh;
-   background: radial-gradient(circle at top, #ecfaff 0%, #d2ebfc 50%, #a1d7ff 100%);
   font-family: 'FiraGO', sans-serif;
   padding-bottom: 60px;
 }
@@ -8,34 +7,28 @@
 .container { max-width: 600px; margin: 60px auto; padding: 0 20px; }
 
 .state-box {
-  background: #fff;
   border-radius: 12px;
   padding: 40px;
   text-align: center;
-  color: #5a8aaa;
-  border: 0.5px solid rgba(0,120,200,0.15);
+  border: 0.5px solid;
   font-size: 15px;
 }
 
-.state-box.error { color: #e74c3c; }
 .state-box i { font-size: 40px; margin-bottom: 12px; }
 
 .ticket-card {
-  background: #fff;
   border-radius: 16px;
   overflow: hidden;
-  border: 0.5px solid rgba(0,120,200,0.15);
+  border: 0.5px solid;
   box-shadow: 0 8px 32px rgba(0,120,200,0.08);
 }
 
 .success-header {
-  background: #1a3a5c;
-  color: #fff;
   text-align: center;
   padding: 36px 24px;
 }
 
-.success-header i { font-size: 52px; color: #f0c040; display: block; margin-bottom: 12px; }
+.success-header i { font-size: 52px; display: block; margin-bottom: 12px; }
 .success-header h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
 .success-header p { font-size: 14px; opacity: 0.75; }
 
@@ -45,30 +38,27 @@
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-  color: #5a8aaa;
   margin-bottom: 12px;
 }
 
-.ticket-row .value { font-weight: 700; color: #1a3a5c; }
-.ticket-row.total { font-size: 16px; font-weight: 700; color: #1a3a5c; }
+.ticket-row.total { font-size: 16px; font-weight: 700; }
 
 .ticket-route {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #f8fbff;
   border-radius: 10px;
   padding: 20px;
   margin: 16px 0;
-  border: 0.5px solid rgba(0,120,200,0.1);
+  border: 0.5px solid;
 }
 
 .route-point { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.route-point .time { font-size: 24px; font-weight: 700; color: #1a3a5c; }
-.route-point .station { font-size: 13px; color: #5a8aaa; }
-.route-line { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #f0c040; }
+.route-point .time { font-size: 24px; font-weight: 700; }
+.route-point .station { font-size: 13px; }
+.route-line { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 24px; }
 
-.passengers-section h3 { font-size: 14px; font-weight: 700; color: #1a3a5c; margin-bottom: 10px; }
+.passengers-section h3 { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
 
 .passenger-row {
   display: flex;
@@ -76,20 +66,24 @@
   align-items: center;
   padding: 8px 0;
   font-size: 14px;
-  color: #1a3a5c;
-  border-bottom: 1px solid #eaf2f8;
+  border-bottom: 1px solid;
 }
 
 .passenger-row:last-child { border-bottom: none; }
-.seat-badge { background: rgba(74,144,196,0.1); color: #4a90c4; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 4px; }
-.divider { height: 1px; background: #eaf2f8; margin: 16px 0; }
+
+.seat-badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.divider { height: 1px; margin: 16px 0; }
 
 .btn-home {
   display: block;
   width: calc(100% - 56px);
   margin: 0 28px 28px;
-  background: #f0c040;
-  color: #1a3a5c;
   border: none;
   padding: 14px;
   border-radius: 10px;
@@ -101,13 +95,9 @@
   text-align: center;
 }
 
-.btn-home:hover { background: #e0b030; }
-
 .btn-pdf {
   width: 100%;
   margin-top: 10px;
-  background: #27ae60;
-  color: #fff;
   border: none;
   padding: 12px;
   border-radius: 8px;
@@ -117,5 +107,3 @@
   font-family: 'FiraGO', sans-serif;
   transition: background 0.2s;
 }
-
-.btn-pdf:hover { background: #219a52; }

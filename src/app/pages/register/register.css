@@ -15,17 +15,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(160deg, #bde0f7 0%, #89c4ef 30%, #ffffff 100%);
   padding: 40px 20px;
 }
 
 .register-card {
-  background: #fff;
   border-radius: 16px;
   padding: 40px;
   width: 100%;
   max-width: 480px;
-  border: 0.5px solid rgba(0, 120, 200, 0.2);
+  border: 0.5px solid;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -38,19 +36,16 @@
 
 .register-header i {
   font-size: 48px;
-  color: #ffa400;
 }
 
 .register-header h1 {
   font-size: 22px;
   font-weight: 700;
-  color: #1a3a5c;
   font-family: 'DancingScript', cursive;
 }
 
 .register-header p {
   font-size: 14px;
-  color: #5a8aaa;
   margin-top: 4px;
 }
 
@@ -67,15 +62,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #fff;
-  border: 0.5px solid rgba(0, 120, 200, 0.25);
+  border: 0.5px solid;
   border-radius: 8px;
   padding: 0 12px;
   height: 44px;
 }
 
 .input-group i {
-  color: #4a90c4;
   font-size: 16px;
 }
 
@@ -85,14 +78,11 @@
   outline: none;
   background: transparent;
   font-size: 14px;
-  color: #1a3a5c;
   width: 100%;
   font-family: 'FiraGO', sans-serif;
 }
 
 .btn-register {
-  background: #f0c040;
-  color: #1a3a5c;
   border: none;
   padding: 12px;
   border-radius: 8px;
@@ -104,12 +94,7 @@
   margin-top: 4px;
 }
 
-.btn-register:hover {
-  background: #e0b030;
-}
-
 .error {
-  color: #e24b4a;
   font-size: 13px;
   text-align: center;
 }
@@ -123,11 +108,9 @@
 .login-link {
   text-align: center;
   font-size: 13px;
-  color: #5a8aaa;
 }
 
 .login-link span {
-  color: #4a90c4;
   cursor: pointer;
   font-weight: 700;
 }
@@ -136,17 +119,11 @@
   text-decoration: underline;
 }
 
-
 .back-btn {
   display: flex;
   align-items: center;
   gap: 6px;
   font-size: 13px;
-  color: #5a8aaa;
   cursor: pointer;
   width: fit-content;
-}
-
-.back-btn:hover {
-  color: #1a3a5c;
 }

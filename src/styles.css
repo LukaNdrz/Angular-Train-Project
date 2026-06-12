@@ -1,6 +1,504 @@
-/* You can add global styles to this file, and also import other style files */
- * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f7f9;
+  --bg-card: #ffffff;
+  --text-primary: #1a3a5c;
+  --text-secondary: #5a8aaa;
+  --border-color: rgba(0, 120, 200, 0.15);
+  --input-bg: #ffffff;
+  --input-border: rgba(0, 120, 200, 0.25);
+  --navbar-bg: #ffffff;
+  --footer-bg: #1a3a5c;
+  --accent: #f0c040;
+  --accent-hover: #e0b030;
+}
+
+body.dark {
+  --bg-primary: #0d1b2a;
+  --bg-secondary: #0a1520;
+  --bg-card: #1b2d45;
+  --text-primary: #fff0ee;
+  --text-secondary: #ff6b6b;
+  --border-color: rgba(255, 107, 107, 0.2);
+  --input-bg: #1e3a5f;
+  --input-border: rgba(255, 107, 107, 0.25);
+  --navbar-bg: #0d1b2a;
+  --footer-bg: #070f18;
+  --accent: #ff6b6b;
+  --accent-hover: #e05555;
+}
+
+/* HOME - LIGHT MODE */
+.hero { background: linear-gradient(160deg, #bde0f7 0%, #89c4ef 30%, #ffffff 100%); }
+.hero-subtitle { color: #4a90c4; }
+.hero-title { color: #1a3a5c; }
+.hero-desc { color: #5a8aaa; }
+.search-form { background: rgba(255, 255, 255, 0.8); }
+.input-group { background: #fff; border: 0.5px solid rgba(0, 120, 200, 0.25); }
+.input-group i { color: #4a90c4; }
+.input-group select, .input-group input { color: #1a3a5c; }
+.btn-search { background: #f0c040; color: #1a3a5c; }
+.btn-search:hover { background: #e0b030; }
+.btn-check-ticket { background: #f0c040; color: #1a3a5c; }
+.btn-check-ticket:hover { background: #e0b030; }
+.features { background: #fff; }
+.feature-card { border: 1px solid rgba(0, 120, 200, 0.15); }
+.feature-card:hover { background: #e8f8ff; box-shadow: 0 8px 20px rgba(0, 120, 200, 0.15); }
+.feature-card i { color: #f0c040; }
+.feature-card h3 { color: #1a3a5c; }
+.feature-card p { color: #5a8aaa; }
+.how-it-works h2 { color: #1a3a5c; }
+.step { background: #fff; }
+.step:hover { background: #e8f8ff; box-shadow: 0 8px 20px rgba(0, 120, 200, 0.15); }
+.step-number { background: #f0c040; color: #1a3a5c; }
+.step h3 { color: #1a3a5c; }
+.step p { color: #5a8aaa; }
+.footer { background: #1a3a5c; color: #8fa8d0; }
+.footer i { color: #f0c040; }
+
+/* HOME - DARK MODE */
+body.dark .hero { background: linear-gradient(160deg, #0d1b2a 0%, #1b2d45 60%, #0d1b2a 100%); }
+body.dark .hero-subtitle { color: #ff6b6b; }
+body.dark .hero-title { color: #fff0ee; }
+body.dark .hero-desc { color: #ffd6cc; }
+body.dark .search-form { background: rgba(27, 45, 69, 0.9); border-color: rgba(255, 107, 107, 0.2); }
+body.dark .input-group { background: #1e3a5f; border-color: rgba(255, 107, 107, 0.25); }
+body.dark .input-group i { color: #ff6b6b; }
+body.dark .input-group select, body.dark .input-group input { color: #fff0ee; }
+body.dark .btn-search { background: #ff6b6b; color: #fff0ee; }
+body.dark .btn-search:hover { background: #e05555; }
+body.dark .btn-check-ticket { background: #ff6b6b; color: #fff0ee; }
+body.dark .btn-check-ticket:hover { background: #e05555; }
+body.dark .features { background: #0a1520; }
+body.dark .feature-card { background: #1b2d45; border-color: rgba(255, 107, 107, 0.2); }
+body.dark .feature-card:hover { background: #1e3a5f; box-shadow: 0 8px 20px rgba(255, 107, 107, 0.15); }
+body.dark .feature-card i { color: #ff6b6b; }
+body.dark .feature-card h3 { color: #ff6b6b; }
+body.dark .feature-card p { color: #ffd6cc; }
+body.dark .how-it-works h2 { color: #ff6b6b; }
+body.dark .step { background: #1b2d45; border-color: rgba(255, 107, 107, 0.2); }
+body.dark .step:hover { background: #1e3a5f; box-shadow: 0 8px 20px rgba(255, 107, 107, 0.15); }
+body.dark .step-number { background: #ff6b6b; color: #fff0ee; }
+body.dark .step h3 { color: #ff6b6b; }
+body.dark .step p { color: #ffd6cc; }
+body.dark .footer { background: #070f18; color: #ffd6cc; }
+body.dark .footer i { color: #ff6b6b; }
+
+/* NAVBAR - LIGHT MODE */
+.navbar { background: #fff; border-bottom: 0.5px solid rgba(0, 120, 200, 0.15); }
+.navbar-bottom { border-top: 3px solid #ffe4b4; }
+.navbar-logo { color: #1a3a5c; }
+.navbar-logo i { color: #ffa400; }
+.navbar-username { color: #1a3a5c; }
+.btn-check-ticket { background: #f0c040; color: #1a3a5c; }
+.btn-check-ticket:hover { background: #e0b030; }
+.btn-logout { background: #d11414; border: 1px solid #e0b030; color: #fff; }
+.btn-logout:hover { background: #a11010; }
+.btn-theme-toggle { background: transparent; border: 1px solid rgba(0, 120, 200, 0.2); color: #1a3a5c; }
+.btn-theme-toggle:hover { background: rgba(0, 120, 200, 0.08); }
+
+/* NAVBAR - DARK MODE */
+body.dark .navbar { background: #0d1b2a; border-bottom-color: rgba(255, 107, 107, 0.2); }
+body.dark .navbar-bottom { border-top-color: rgba(255, 107, 107, 0.3); }
+body.dark .navbar-logo { color: #fff0ee; }
+body.dark .navbar-logo i { color: #ff6b6b; }
+body.dark .navbar-username { color: #fff0ee; }
+body.dark .btn-check-ticket { background: #ff6b6b; color: #fff0ee; }
+body.dark .btn-check-ticket:hover { background: #e05555; }
+body.dark .btn-logout { background: #d11414; border-color: #ff6b6b; color: #fff; }
+body.dark .btn-logout:hover { background: #a11010; }
+body.dark .btn-theme-toggle { background: transparent; border-color: rgba(255, 107, 107, 0.3); color: #fff0ee; }
+body.dark .btn-theme-toggle:hover { background: rgba(255, 107, 107, 0.1); }
+
+
+/* TRAINS - LIGHT MODE */
+.trains-wrapper { background: linear-gradient(315deg, #a1d7ff, #ecfaff); }
+.search-summary { background: linear-gradient(90deg, #ffd16f, #59b1ff); }
+.summary-arrow { color: #f0c040; }
+.summary-tag i { color: #f0c040; }
+.no-results { color: #5a8aaa; background: #fff; }
+.no-results i { color: #d0e4f0; }
+.train-card { background: #fff; border: 1px solid rgba(0,120,200,0.1); }
+.train-card:hover { box-shadow: 0 8px 24px rgba(0,120,200,0.1); }
+.card-accent { background: linear-gradient(100deg, #4a90c4, #fff7cc); }
+.card-content { background: #fff; }
+.card-content:hover { background: #edfeff; }
+.train-badge { background: rgba(74,144,196,0.1); color: #4a90c4; }
+.train-route { color: #1a3a5c; }
+.train-name { color: #5a8aaa; }
+.time-label { color: #5a8aaa; }
+.time-value { color: #1a3a5c; }
+.time-station { color: #5a8aaa; }
+.divider-line { background: linear-gradient(90deg, #4a90c4, #b0cfe8); }
+.divider-icon { color: #4a90c4; }
+.train-price { color: #5a8aaa; }
+.btn-select { background: #ffbf00; color: #1a3a5c; }
+.btn-select:hover { background: #daa400; }
+
+/* TRAINS - DARK MODE */
+body.dark .trains-wrapper { background: linear-gradient(315deg, #0a1520, #0d1b2a); }
+body.dark .search-summary { background: linear-gradient(90deg, #ff6b6b, #0d3a6e); }
+body.dark .summary-arrow { color: #ff6b6b; }
+body.dark .summary-tag i { color: #ff6b6b; }
+body.dark .no-results { color: #ffd6cc; background: #1b2d45; border-color: rgba(255,107,107,0.2); }
+body.dark .no-results i { color: #ff6b6b; }
+body.dark .train-card { background: #1b2d45; border-color: rgba(255,107,107,0.15); }
+body.dark .train-card:hover { box-shadow: 0 8px 24px rgba(255,107,107,0.1); }
+body.dark .card-accent { background: linear-gradient(100deg, #ff6b6b, #1b2d45); }
+body.dark .card-content { background: #1b2d45; }
+body.dark .card-content:hover { background: #1e3a5f; }
+body.dark .train-badge { background: rgba(255,107,107,0.1); color: #ff6b6b; }
+body.dark .train-route { color: #fff0ee; }
+body.dark .train-name { color: #ffd6cc; }
+body.dark .time-label { color: #ffd6cc; }
+body.dark .time-value { color: #fff0ee; }
+body.dark .time-station { color: #ffd6cc; }
+body.dark .divider-line { background: linear-gradient(90deg, #ff6b6b, #1b2d45); }
+body.dark .divider-icon { color: #ff6b6b; }
+body.dark .train-price { color: #ffd6cc; }
+body.dark .btn-select { background: #ff6b6b; color: #fff0ee; }
+body.dark .btn-select:hover { background: #e05555; }
+
+/* BOOKING - LIGHT MODE */
+.booking-wrapper { background: linear-gradient(315deg, #a1d7ff, #ecfaff); }
+.section-card { background: #fff; border-color: rgba(0, 120, 200, 0.15); }
+.section-title { color: #1a3a5c; }
+.train-summary { background: #f8fbff; border-color: rgba(0,120,200,0.1); }
+.train-badge { background: rgba(74,144,196,0.1); color: #4a90c4; }
+.train-name { color: #5a8aaa; }
+.time-label { color: #5a8aaa; }
+.time-val { color: #1a3a5c; }
+.station { color: #5a8aaa; }
+.arrow { color: #4a90c4; }
+.form-input { border-color: #d0e4f0; color: #1a3a5c; background: #fff; }
+.form-input:focus { border-color: #4a90c4; }
+.passenger-block { border-bottom-color: #eaf2f8; }
+.passenger-label { color: #1a3a5c; }
+.btn-seat { background: #1a3a5c; color: #fff; }
+.btn-seat:hover { background: #254d7a; }
+.luggage-item { background: #f8fbff; border-color: rgba(0,120,200,0.1); }
+.luggage-item i { color: #4a90c4; }
+.luggage-item strong { color: #1a3a5c; }
+.luggage-item p { color: #5a8aaa; }
+.invoice { background: #fff; border-color: rgba(0,120,200,0.15); }
+.invoice-title { color: #1a3a5c; }
+.invoice-row { color: #5a8aaa; }
+.invoice-row.total { color: #1a3a5c; border-top-color: #eaf2f8; }
+.invoice-passenger { color: #5a8aaa; }
+.checkbox-row { color: #5a8aaa; }
+.btn-register { background: #1a3a5c; color: #fff; }
+.btn-register:hover:not(:disabled) { background: #254d7a; }
+.modal { background: #fff; }
+.modal-close { color: #5a8aaa; }
+.modal-close:hover { color: #1a3a5c; }
+.modal-class-label { color: #1a3a5c; }
+.wagon-class { color: #1a3a5c; }
+.wagon-name { color: #1a3a5c; }
+.seat-grid-wrapper { background: #f8fbff; border-color: #e0eef8; }
+.toilet-label { color: #5a8aaa; background: #e8f0f7; }
+.seat-btn { background: #b8e6b0; color: #1a5c2a; border-color: #7dce75; }
+.seat-btn.occupied { background: #e0e0e0 !important; color: #aaa !important; border-color: #ccc !important; }
+.seat-btn.selected { background: #e74c3c !important; color: #fff !important; border-color: #c0392b !important; }
+.btn-back { border-color: #d0e4f0; color: #5a8aaa; }
+.btn-back:hover { border-color: #4a90c4; color: #1a3a5c; }
+.btn-confirm-seat { background: #1a3a5c; color: #fff; }
+.btn-confirm-seat:hover:not(:disabled) { background: #254d7a; }
+
+/* BOOKING - DARK MODE */
+body.dark .booking-wrapper { background: linear-gradient(315deg, #0a1520, #0d1b2a); }
+body.dark .section-card { background: #1b2d45; border-color: rgba(255,107,107,0.2); }
+body.dark .section-title { color: #ff6b6b; }
+body.dark .train-summary { background: #1e3a5f; border-color: rgba(255,107,107,0.15); }
+body.dark .train-badge { background: rgba(255,107,107,0.1); color: #ff6b6b; }
+body.dark .train-name { color: #ffd6cc; }
+body.dark .time-label { color: #ffd6cc; }
+body.dark .time-val { color: #fff0ee; }
+body.dark .station { color: #ffd6cc; }
+body.dark .arrow { color: #ff6b6b; }
+body.dark .form-input { border-color: rgba(255,107,107,0.25); color: #fff0ee; background: #1e3a5f; }
+body.dark .form-input:focus { border-color: #ff6b6b; }
+body.dark .passenger-block { border-bottom-color: rgba(255,107,107,0.15); }
+body.dark .passenger-label { color: #fff0ee; }
+body.dark .btn-seat { background: #ff6b6b; color: #fff0ee; }
+body.dark .btn-seat:hover { background: #e05555; }
+body.dark .luggage-item { background: #1e3a5f; border-color: rgba(255,107,107,0.15); }
+body.dark .luggage-item i { color: #ff6b6b; }
+body.dark .luggage-item strong { color: #fff0ee; }
+body.dark .luggage-item p { color: #ffd6cc; }
+body.dark .invoice { background: #1b2d45; border-color: rgba(255,107,107,0.2); }
+body.dark .invoice-title { color: #ff6b6b; }
+body.dark .invoice-row { color: #ffd6cc; }
+body.dark .invoice-row.total { color: #fff0ee; border-top-color: rgba(255,107,107,0.2); }
+body.dark .invoice-passenger { color: #ffd6cc; }
+body.dark .checkbox-row { color: #ffd6cc; }
+body.dark .btn-register { background: #ff6b6b; color: #fff0ee; }
+body.dark .btn-register:hover:not(:disabled) { background: #e05555; }
+body.dark .modal { background: #1b2d45; }
+body.dark .modal-close { color: #ffd6cc; }
+body.dark .modal-close:hover { color: #fff0ee; }
+body.dark .modal-class-label { color: #ff6b6b; }
+body.dark .wagon-class { color: #ffd6cc; }
+body.dark .wagon-name { color: #ff6b6b; }
+body.dark .seat-grid-wrapper { background: #1e3a5f; border-color: rgba(255,107,107,0.2); }
+body.dark .toilet-label { color: #ffd6cc; background: #0d1b2a; }
+body.dark .seat-btn { background: #2d5a3d; color: #b8e6b0; border-color: #3d7a50; }
+body.dark .btn-back { border-color: rgba(255,107,107,0.25); color: #ffd6cc; }
+body.dark .btn-back:hover { border-color: #ff6b6b; color: #fff0ee; }
+body.dark .btn-confirm-seat { background: #ff6b6b; color: #fff0ee; }
+body.dark .btn-confirm-seat:hover:not(:disabled) { background: #e05555; }
+
+
+/* PAYMENT - LIGHT MODE */
+.payment-wrapper { background: radial-gradient(circle at top, #ecfaff 0%, #d2ebfc 50%, #a1d7ff 100%); }
+.summary-card { background: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.6); }
+.summary-title { color: #1a3a5c; }
+.ticket-route { background: #1a3a5c; color: #fff; }
+.detail-row { color: #4a6b82; }
+.detail-row strong { color: #1a3a5c; }
+.divider { background: #d0e4f0; }
+.price-row { color: #1a3a5c; }
+.total-price { color: #2e6da4; }
+.page-title { color: #1a3a5c; }
+.payment-form { background: #fff; border-color: rgba(0,120,200,0.08); }
+.form-group label { color: #5a8aaa; }
+.form-input { border-color: #d0e4f0; color: #1a3a5c; background: #fff; }
+.form-input:focus { border-color: #2e6da4; box-shadow: 0 0 0 3px rgba(46,109,164,0.15); }
+.error-msg { color: #e74c3c; }
+.btn-pay { background: #f0c040; color: #1a3a5c; box-shadow: 0 4px 12px rgba(240,192,64,0.3); }
+.btn-pay:hover:not(:disabled) { background: #e0b030; box-shadow: 0 6px 16px rgba(240,192,64,0.4); }
+
+/* PAYMENT - DARK MODE */
+body.dark .payment-wrapper { background: radial-gradient(circle at top, #0d1b2a 0%, #0a1520 50%, #070f18 100%); }
+body.dark .summary-card { background: rgba(27,45,69,0.9); border-color: rgba(255,107,107,0.2); }
+body.dark .summary-title { color: #ff6b6b; }
+body.dark .ticket-route { background: #0d1b2a; color: #fff0ee; }
+body.dark .detail-row { color: #ffd6cc; }
+body.dark .detail-row strong { color: #fff0ee; }
+body.dark .divider { background: rgba(255,107,107,0.2); }
+body.dark .price-row { color: #fff0ee; }
+body.dark .total-price { color: #ff6b6b; }
+body.dark .page-title { color: #ff6b6b; }
+body.dark .payment-form { background: #1b2d45; border-color: rgba(255,107,107,0.15); }
+body.dark .form-group label { color: #ffd6cc; }
+body.dark .form-input { border-color: rgba(255,107,107,0.25); color: #fff0ee; background: #1e3a5f; }
+body.dark .form-input:focus { border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,0.15); }
+body.dark .error-msg { color: #ff6b6b; }
+body.dark .btn-pay { background: #ff6b6b; color: #fff0ee; box-shadow: 0 4px 12px rgba(255,107,107,0.3); }
+body.dark .btn-pay:hover:not(:disabled) { background: #e05555; }
+
+
+/* CONFIRMATION - LIGHT MODE */
+.confirmation-wrapper { background: radial-gradient(circle at top, #ecfaff 0%, #d2ebfc 50%, #a1d7ff 100%); }
+.state-box { background: #fff; color: #5a8aaa; border-color: rgba(0,120,200,0.15); }
+.state-box.error { color: #e74c3c; }
+.ticket-card { background: #fff; border-color: rgba(0,120,200,0.15); }
+.success-header { background: #1a3a5c; color: #fff; }
+.success-header i { color: #f0c040; }
+.ticket-row { color: #5a8aaa; }
+.ticket-row .value { color: #1a3a5c; }
+.ticket-row.total { color: #1a3a5c; }
+.ticket-route { background: #f8fbff; border-color: rgba(0,120,200,0.1); }
+.route-point .time { color: #1a3a5c; }
+.route-point .station { color: #5a8aaa; }
+.route-line { color: #f0c040; }
+.passengers-section h3 { color: #1a3a5c; }
+.passenger-row { color: #1a3a5c; border-bottom-color: #eaf2f8; }
+.seat-badge { background: rgba(74,144,196,0.1); color: #4a90c4; }
+.divider { background: #eaf2f8; }
+.btn-home { background: #f0c040; color: #1a3a5c; }
+.btn-home:hover { background: #e0b030; }
+.btn-pdf { background: #27ae60; color: #fff; }
+.btn-pdf:hover { background: #219a52; }
+
+/* CONFIRMATION - DARK MODE */
+body.dark .confirmation-wrapper { background: radial-gradient(circle at top, #0d1b2a 0%, #0a1520 50%, #070f18 100%); }
+body.dark .state-box { background: #1b2d45; color: #ffd6cc; border-color: rgba(255,107,107,0.2); }
+body.dark .state-box.error { color: #ff6b6b; }
+body.dark .ticket-card { background: #1b2d45; border-color: rgba(255,107,107,0.2); }
+body.dark .success-header { background: #0d1b2a; color: #fff0ee; }
+body.dark .success-header i { color: #ff6b6b; }
+body.dark .ticket-row { color: #ffd6cc; }
+body.dark .ticket-row .value { color: #fff0ee; }
+body.dark .ticket-row.total { color: #fff0ee; }
+body.dark .ticket-route { background: #1e3a5f; border-color: rgba(255,107,107,0.15); }
+body.dark .route-point .time { color: #fff0ee; }
+body.dark .route-point .station { color: #ffd6cc; }
+body.dark .route-line { color: #ff6b6b; }
+body.dark .passengers-section h3 { color: #ff6b6b; }
+body.dark .passenger-row { color: #fff0ee; border-bottom-color: rgba(255,107,107,0.15); }
+body.dark .seat-badge { background: rgba(255,107,107,0.1); color: #ff6b6b; }
+body.dark .divider { background: rgba(255,107,107,0.15); }
+body.dark .btn-home { background: #ff6b6b; color: #fff0ee; }
+body.dark .btn-home:hover { background: #e05555; }
+body.dark .btn-pdf { background: #1a7a40; color: #fff; }
+body.dark .btn-pdf:hover { background: #155c30; }
+
+
+/* CHECK TICKET - LIGHT MODE */
+.check-wrapper { background: linear-gradient(315deg, #a1d7ff, #ecfaff); }
+.page-title { color: #1a3a5c; }
+.form-input { border-color: rgba(0,120,200,0.25); color: #1a3a5c; background: #fff; }
+.form-input:focus { border-color: #4a90c4; }
+.btn-search { background: #f0c040; color: #1a3a5c; }
+.btn-search:hover { background: #e0b030; }
+.error-msg { color: #000; border-color: #000; background: #ff513f; }
+.ticket-card { background: #fff; border-color: rgba(0,120,200,0.15); }
+.success-header { background: linear-gradient(160deg, #1a3a5c, #2e6da4); color: #fff; }
+.success-header i { color: #f0c040; }
+.ticket-row .label { color: #5a8aaa; }
+.ticket-row .value { color: #1a3a5c; }
+.ticket-row.total { color: #1a3a5c; }
+.divider { background: rgba(0,120,200,0.1); }
+.passengers-section h3 { color: #1a3a5c; }
+.passenger-row { background: #f4f8fc; color: #1a3a5c; }
+.seat-badge { background: #e8f4fd; color: #2e6da4; }
+.saved-title { color: #1a3a5c; }
+.saved-ticket-row { background: #fff; border-color: rgba(0,120,200,0.2); }
+.saved-ticket-row:hover { border-color: #4a90c4; background: #f0f7ff; }
+.saved-id { color: #1a3a5c; }
+.saved-date { color: #5a8aaa; }
+.saved-route { color: #1a3a5c; }
+.btn-cancel { background: #e74c3c; color: #fff; }
+.btn-cancel:hover { background: #c0392b; }
+
+/* CHECK TICKET - DARK MODE */
+body.dark .check-wrapper { background: linear-gradient(315deg, #0a1520, #0d1b2a); }
+body.dark .page-title { color: #ff6b6b; }
+body.dark .form-input { border-color: rgba(255,107,107,0.25); color: #fff0ee; background: #1e3a5f; }
+body.dark .form-input:focus { border-color: #ff6b6b; }
+body.dark .btn-search { background: #ff6b6b; color: #fff0ee; }
+body.dark .btn-search:hover { background: #e05555; }
+body.dark .error-msg { color: #fff; border-color: #ff6b6b; background: #8b1a10; }
+body.dark .ticket-card { background: #1b2d45; border-color: rgba(255,107,107,0.2); }
+body.dark .success-header { background: linear-gradient(160deg, #0d1b2a, #1b2d45); color: #fff0ee; }
+body.dark .success-header i { color: #ff6b6b; }
+body.dark .ticket-row .label { color: #ffd6cc; }
+body.dark .ticket-row .value { color: #fff0ee; }
+body.dark .ticket-row.total { color: #fff0ee; }
+body.dark .divider { background: rgba(255,107,107,0.15); }
+body.dark .passengers-section h3 { color: #ff6b6b; }
+body.dark .passenger-row { background: #1e3a5f; color: #fff0ee; }
+body.dark .seat-badge { background: rgba(255,107,107,0.1); color: #ff6b6b; }
+body.dark .saved-title { color: #ff6b6b; }
+body.dark .saved-ticket-row { background: #1b2d45; border-color: rgba(255,107,107,0.2); }
+body.dark .saved-ticket-row:hover { border-color: #ff6b6b; background: #1e3a5f; }
+body.dark .saved-id { color: #fff0ee; }
+body.dark .saved-date { color: #ffd6cc; }
+body.dark .saved-route { color: #fff0ee; }
+body.dark .btn-cancel { background: #8b1a10; color: #fff; }
+body.dark .btn-cancel:hover { background: #6b1008; }
+
+
+/* LOGIN - LIGHT MODE */
+.login-wrapper { background: linear-gradient(160deg, #bde0f7 0%, #89c4ef 30%, #ffffff 100%); }
+.login-card { background: #fff; border-color: rgba(0,120,200,0.2); }
+.login-header i { color: #ffa400; }
+.login-header h1 { color: #1a3a5c; }
+.login-header p { color: #5a8aaa; }
+.input-group { background: #fff; border-color: rgba(0,120,200,0.25); }
+.input-group i { color: #4a90c4; }
+.input-group input { color: #1a3a5c; }
+.btn-login { background: #f0c040; color: #1a3a5c; }
+.btn-login:hover { background: #e0b030; }
+.error { color: #e24b4a; }
+.signup-link { color: #5a8aaa; }
+.signup-link span { color: #4a90c4; }
+.back-btn { color: #5a8aaa; }
+.back-btn:hover { color: #1a3a5c; }
+
+/* LOGIN - DARK MODE */
+body.dark .login-wrapper { background: linear-gradient(160deg, #0d1b2a 0%, #1b2d45 60%, #0d1b2a 100%); }
+body.dark .login-card { background: #1b2d45; border-color: rgba(255,107,107,0.2); }
+body.dark .login-header i { color: #ff6b6b; }
+body.dark .login-header h1 { color: #fff0ee; }
+body.dark .login-header p { color: #ffd6cc; }
+body.dark .input-group { background: #1e3a5f; border-color: rgba(255,107,107,0.25); }
+body.dark .input-group i { color: #ff6b6b; }
+body.dark .input-group input { color: #fff0ee; }
+body.dark .btn-login { background: #ff6b6b; color: #fff0ee; }
+body.dark .btn-login:hover { background: #e05555; }
+body.dark .error { color: #ff6b6b; }
+body.dark .signup-link { color: #ffd6cc; }
+body.dark .signup-link span { color: #ff6b6b; }
+body.dark .back-btn { color: #ffd6cc; }
+body.dark .back-btn:hover { color: #fff0ee; }
+
+
+/* REGISTER - LIGHT MODE */
+.register-wrapper { background: linear-gradient(160deg, #bde0f7 0%, #89c4ef 30%, #ffffff 100%); }
+.register-card { background: #fff; border-color: rgba(0, 120, 200, 0.2); }
+.register-header i { color: #ffa400; }
+.register-header h1 { color: #1a3a5c; }
+.register-header p { color: #5a8aaa; }
+.btn-register { background: #f0c040; color: #1a3a5c; }
+.btn-register:hover { background: #e0b030; }
+.error { color: #e24b4a; }
+.login-link { color: #5a8aaa; }
+.login-link span { color: #4a90c4; }
+.back-btn { color: #5a8aaa; }
+.back-btn:hover { color: #1a3a5c; }
+
+/* REGISTER - DARK MODE */
+body.dark .register-wrapper { background: linear-gradient(160deg, #0d1b2a 0%, #1b2d45 60%, #0d1b2a 100%); }
+body.dark .register-card { background: #1b2d45; border-color: rgba(255, 107, 107, 0.2); }
+body.dark .register-header i { color: #ff6b6b; }
+body.dark .register-header h1 { color: #fff0ee; }
+body.dark .register-header p { color: #ffd6cc; }
+body.dark .btn-register { background: #ff6b6b; color: #fff0ee; }
+body.dark .btn-register:hover { background: #e05555; }
+body.dark .error { color: #ff6b6b; }
+body.dark .login-link { color: #ffd6cc; }
+body.dark .login-link span { color: #ff6b6b; }
+body.dark .back-btn { color: #ffd6cc; }
+body.dark .back-btn:hover { color: #fff0ee; }
+
+
+/* PROFILE - LIGHT MODE */
+.profile-wrapper { background: linear-gradient(160deg, #bde0f7 0%, #89c4ef 30%, #ffffff 100%); }
+.avatar-card { background: #fff; border-color: rgba(0, 120, 200, 0.15); }
+.avatar-initials { background: #f0c040; color: #1a3a5c; border-color: #e0b030; }
+.avatar-card h3 { color: #1a3a5c; }
+.avatar-card p { color: #5a8aaa; }
+.verified-badge { background: #ddffe2; color: #0bb81b; border-color: #5da314; }
+.nav-item { background: #fff; border-color: rgba(0, 120, 200, 0.15); color: #1a3a5c; }
+.nav-item:hover { border-color: #f0c040; background: #fffbe6; }
+.nav-item i { color: #f0c040; }
+.section-card { background: #fff; border-color: rgba(0, 120, 200, 0.15); }
+.section-head { border-bottom-color: #f0c040; }
+.section-head i { color: #f0c040; }
+.section-head h3 { color: #1a3a5c; }
+.field label { color: #5a8aaa; }
+.field input, .field select { border-color: rgba(0, 120, 200, 0.25); color: #1a3a5c; background: #fafcff; }
+.field input:focus, .field select:focus { border-color: #f0c040; }
+.btn-save { background: #f0c040; color: #1a3a5c; }
+.btn-save:hover { background: #e0b030; }
+.error { color: #e24b4a; }
+.success { color: #1d9e75; border-color: #1d9e75; background: #e6f9f5; }
+
+/* PROFILE - DARK MODE */
+body.dark .profile-wrapper { background: linear-gradient(160deg, #0d1b2a 0%, #1b2d45 60%, #0d1b2a 100%); }
+body.dark .avatar-card { background: #1b2d45; border-color: rgba(255, 107, 107, 0.2); }
+body.dark .avatar-initials { background: #ff6b6b; color: #fff0ee; border-color: #e05555; }
+body.dark .avatar-card h3 { color: #fff0ee; }
+body.dark .avatar-card p { color: #ffd6cc; }
+body.dark .verified-badge { background: #1a3a2a; color: #4dde5e; border-color: #2d7a3a; }
+body.dark .nav-item { background: #1b2d45; border-color: rgba(255, 107, 107, 0.2); color: #fff0ee; }
+body.dark .nav-item:hover { border-color: #ff6b6b; background: #1e3a5f; }
+body.dark .nav-item i { color: #ff6b6b; }
+body.dark .section-card { background: #1b2d45; border-color: rgba(255, 107, 107, 0.2); }
+body.dark .section-head { border-bottom-color: #ff6b6b; }
+body.dark .section-head i { color: #ff6b6b; }
+body.dark .section-head h3 { color: #ff6b6b; }
+body.dark .field label { color: #ffd6cc; }
+body.dark .field input, body.dark .field select { border-color: rgba(255, 107, 107, 0.25); color: #fff0ee; background: #1e3a5f; }
+body.dark .field input:focus, body.dark .field select:focus { border-color: #ff6b6b; }
+body.dark .btn-save { background: #ff6b6b; color: #fff0ee; }
+body.dark .btn-save:hover { background: #e05555; }
+body.dark .error { color: #ff6b6b; }
+body.dark .success { color: #4dde5e; border-color: #2d7a3a; background: #0d2a1a; }

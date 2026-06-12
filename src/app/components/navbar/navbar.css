@@ -20,8 +20,6 @@
   display: flex;
   flex-direction: column;
   padding: 14px 20px;
-  background: #fff;
-  border-bottom: 0.5px solid rgba(0, 120, 200, 0.15);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -40,33 +38,28 @@
   align-items: center;
   justify-content: flex-start;
   gap: 12px;
-  border-top: 3px solid #ffe4b4;
   padding-top: 6px;
 }
-
 
 .navbar-logo {
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #1a3a5c;
   font-weight: 700;
   font-size: 16px;
 }
+
 .navbar-logo-text {
-    font-size: 50px;
-    font-family: 'DancingScript';
+  font-size: 50px;
+  font-family: 'DancingScript';
 }
 
 .navbar-logo i {
   font-size: 80px;
-  color: #ffa400;
 }
 
 .btn-check-ticket {
-  background: #f0c040;
-  color: #1a3a5c;
   border: none;
   padding: 8px 20px;
   border-radius: 20px;
@@ -77,10 +70,6 @@
   font-family: 'FiraGO', sans-serif;
 }
 
-.btn-check-ticket:hover {
-  background: #e0b030;
-}
-
 .navbar-actions {
   display: flex;
   align-items: center;
@@ -89,7 +78,6 @@
 
 .navbar-username {
   font-size: 20px;
-  color: #1a3a5c;
   font-family: 'FiraGO', sans-serif;
   cursor: pointer;
 }
@@ -99,9 +87,7 @@
 }
 
 .btn-logout {
-  background: #d11414;
-  border: 1px solid #e0b030;
-  color:  #fff;
+  border: none;
   padding: 8px 20px;
   border-radius: 20px;
   font-weight: 700;
@@ -111,56 +97,39 @@
   transition: background 0.2s;
 }
 
-.btn-logout:hover {
-  background: #a11010;
+.btn-theme-toggle {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s;
+  border: none;
 }
 
 @media (max-width: 850px) {
-  .navbar-logo-text{
-    font-size: 40px;
-  }
-  .navbar-username {
-    font-size: 15px
-  }
-  .btn-check-ticket, .btn-logout {
-    font-size: 14px;
-
-  }
+  .navbar-logo-text { font-size: 40px; }
+  .navbar-username { font-size: 15px; }
+  .btn-check-ticket, .btn-logout { font-size: 14px; }
 }
+
 @media (max-width: 700px) {
-  .navbar-logo-text{
-    font-size: 30px;
-  }
-  .navbar-username {
-    font-size: 12px
-  }
-  .btn-check-ticket, .btn-logout {
-    font-size: 12px;
-  }
-  .ti-train:before {
-    font-size: 70px;
-  }
+  .navbar-logo-text { font-size: 30px; }
+  .navbar-username { font-size: 12px; }
+  .btn-check-ticket, .btn-logout { font-size: 12px; }
+  .ti-train:before { font-size: 70px; }
 }
+
 @media (max-width: 580px) {
-
-  .navbar{
-    padding: 14px 18px;
-  }
-  .ti-train {
-    display: none;
-  }
-  .btn-check-ticket, .btn-logout {
-    padding: 6px 8px;
-  }
-
+  .navbar { padding: 14px 18px; }
+  .ti-train { display: none; }
+  .btn-check-ticket, .btn-logout { padding: 6px 8px; }
 }
+
 @media (max-width: 400px) {
-  .navbar-logo-text{
-    font-size: 21px;
-
-  }
-  .btn-check-ticket, .btn-logout {
-    padding: 6px 4px;
-  }
+  .navbar-logo-text { font-size: 21px; }
+  .btn-check-ticket, .btn-logout { padding: 6px 4px; }
 }
-
